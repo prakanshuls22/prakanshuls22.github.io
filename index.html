@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Prakanshul</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+        integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <script>
+        function imageZoom(imgID, resultID) {
+            var img, lens, result, cx, cy;
+            img = document.getElementById(imgID);
+            result = document.getElementById(resultID);
+            /* Create lens: */
+            lens = document.createElement("DIV");
+            lens.setAttribute("class", "img-zoom-lens");
+            /* Insert lens: */
+            img.parentElement.insertBefore(lens, img);
+            /* Calculate the ratio between result DIV and lens: */
+            cx = result.offsetWidth / lens.offsetWidth;
+            cy = result.offsetHeight / lens.offsetHeight;
+            /* Set background properties for the result DIV */
+            result.style.backgroundImage = "url('" + img.src + "')";
+            result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
+            /* Execute a function when someone moves the cursor over the image, or the lens: */
+            lens.addEventListener("mousemove", moveLens);
+            img.addEventListener("mousemove", moveLens);
+            /* And also for touch screens: */
+            lens.addEventListener("touchmove", moveLens);
+            img.addEventListener("touchmove", moveLens);
+            function moveLens(e) {
+                var pos, x, y;
+                /* Prevent any other actions that may occur when moving over the image */
+                e.preventDefault();
+                /* Get the cursor's x and y positions: */
+                pos = getCursorPos(e);
+                /* Calculate the position of the lens: */
+                x = pos.x - (lens.offsetWidth / 2);
+                y = pos.y - (lens.offsetHeight / 2);
+                /* Prevent the lens from being positioned outside the image: */
+                if (x > img.width - lens.offsetWidth) { x = img.width - lens.offsetWidth; }
+                if (x < 0) { x = 0; }
+                if (y > img.height - lens.offsetHeight) { y = img.height - lens.offsetHeight; }
+                if (y < 0) { y = 0; }
+                /* Set the position of the lens: */
+                lens.style.left = x + "px";
+                lens.style.top = y + "px";
+                /* Display what the lens "sees": */
+                result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
+            }
+            function getCursorPos(e) {
+                var a, x = 0, y = 0;
+                e = e || window.event;
+                /* Get the x and y positions of the image: */
+                a = img.getBoundingClientRect();
+                /* Calculate the cursor's x and y coordinates, relative to the image: */
+                x = e.pageX - a.left;
+                y = e.pageY - a.top;
+                /* Consider any page scrolling: */
+                x = x - window.pageXOffset;
+                y = y - window.pageYOffset;
+                return { x: x, y: y };
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <nav class="top-navbar navbar fixed-top navbar-expand navbar-light bg-white">
+        <div class="container">
+            <!-- <a class="logo icon-logo navbar-brand mx-md-auto mx-lg-auto mx-xl-auto" href="#"></a> -->
+            <!-- <h1 class="font-weight-bold mt-4 mx-md-auto mx-lg-auto mx-xl-auto">Google Summer of Code</h1> -->
+            <img class="navbar-brand mt-4 mx-md-auto mx-lg-auto mx-xl-auto" width="450" src="assets/images/logo_lockup_summer_of_code_horizontal_PS (1).jpg">
+
+
+            <!-- <div class="navbar-btns navbar-nav mr-lg-3 mr-xl-5">
+                <a class="nav-link text-success" href="#" title="sign in">Sign in</a>
+                <div class="navbar-text text-success">/</div>
+                <a class="nav-link text-success" href="#" title="sign up">Sign up</a>
+            </div> -->
+        </div>
+    </nav>
+
+    <!-- <nav class="bottom-navbar navbar fixed-bottom navbar-expand navbar-light bg-white">
+        <div class="container justify-content-center">
+            <img class="rounded-circle float-left" height="40" src="assets/images/avatar1.png" alt="Addy Osmani">
+            <div class="col-lg-6 col-md-8">
+                <div class="">Never miss a story from <b>Addy Osmani</b><span class="d-none d-md-inline">, when you sign up for Medium. <a class="text-success" href="#">Learn more</a></span></div>
+            </div>
+            <button type="button" class="get-updates btn btn-success btn-sm float-right py-2 px-3 font-weight-bold text-uppercase">Get updates</button>
+
+        </div>
+    </nav> -->
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
+    <main class="container">
+        <div class="row justify-content-center">
+            <div class="float-left text-center">
+                <img class="rounded-circle" height="70" src="assets/images/avatar1.png" alt="Addy Osmani">
+            </div>
+            <div class="col-7 ml-1">
+                <div class="row">
+                    <h6>Prakanshul Saxena</h6>
+                    <a href="https://www.linkedin.com/in/prakanshul-saxena-a21b20190/" target="blank"><button
+                            class="follow-btn follow-btn--small btn btn-outline-success btn-sm ml-3"
+                            type="button">LinkedIn</button></a>
+                </div>
+                <div class="row">
+                    <small class="text-secondary">My name is Prakanshul Saxena, senior year student, IIT Bhilai, in EE
+                        discipline. Below is a project report of my work in GSoC’22 @ INCF under the mentorship of
+                        Suresh Krishna and Dinesh Sathia Raj. </small>
+                </div>
+                <div class="row">
+                    <small class="text-secondary">Sept 12, 2022 &#8226;</small>
+                </div>
+            </div>
+        </div>
+
+        <article>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h1 class="font-weight-bold mt-4">Background on Project</h1>
+
+                    <!-- <img class="img-fluid my-4" src="assets/images/img8.png"> -->
+                    <p>Last year, on this project, a similar implementation of the model by Google was done and the
+                        results regarding the same were obtained. A detailed summary regarding the background of the
+                        project is available on -<a href="https://dssr2.github.io/gaze-track/"
+                            target="blank">https://dssr2.github.io/gaze-track/</a> . Below is the explanation for some
+                        useful terms frequently used in this report.</p>
+                </div>
+            </div>
+
+            <section class="mt-5">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h1 class="font-weight-bold mt-4">Important Terms</h1>
+
+                        <div class="col-lg-8 mx-auto">
+
+                            <ul>
+                                <li><b>.tfrec file</b>
+                                    <p>
+                                        The TFRecord format is a simple format for storing a sequence of binary records.
+
+                                    </p>
+                                </li>
+                                <li><b>Gazetrack dataset</b>
+                                    <p>
+                                        The main dataset whose split and directory structure are explained below.
+                                    </p>
+                                </li>
+                                <li><b>Google Model</b>
+                                    <p>
+                                        The .tflite model provided by Google for experiment purposes.
+                                    </p>
+                                </li>
+                                <li><b>SVR</b>
+                                    <p>
+                                        Multi-Regression Support Vector Machine
+                                    </p>
+                                </li>
+                                <li><b>Individual Datapoint (gazetrack)
+                                    </b>
+                                    <p>
+                                        The visualization of a tfrec data point is given below.
+                                    </p>
+                                </li>
+
+                            </ul>
+
+
+                        </div>
+
+                        <!-- <div class="timeline">
+                            <div class="outer">
+                                <div class="card">
+                                    <div class="info">
+                                        <p class="title">Querying Google Base Model - P
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="info">
+                                        <p class="title">Making tfrec (gazetrack.tar.gz) to replicate google’s model - p
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="info">
+                                        <p class="title">Modifying input pipeline according to google’s model - P</p>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="info">
+                                        <p class="title">App correction and data collection - P (data collection)
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="info">
+                                        <p class="title">Code for storing outputs of the model on all datasets. - P</p>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="info">
+                                        <p class="title">Code for storing outputs of the model on all datasets. - P</p>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="info">
+                                        <p class="title">Code for storing outputs of the model on all datasets. - P</p>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="info">
+                                        <p class="title">Code for storing outputs of the model on all datasets. - P</p>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="info">
+                                        <p class="title">Code for storing outputs of the model on all datasets. - P</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                <!-- <div class="row justify-content-center">
+                    <figure class="figure">
+                        <img class="figure-img img-fluid col-12" src="assets/images/img5.jpg">
+                        <figcaption class="figure-caption text-center"><small>Results from the Lighthouse Chrome
+                                extension</small></figcaption>
+                    </figure>
+                </div> -->
+                <!-- <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <p>The top-level audits Lighthouse runs effectively a collection of modern web best practices
+                            refined
+                            for a mobile world:</p>
+                        <ul>
+                            <li class="mt-3"><b>Network connection is secure</b></li>
+                            <li class="mt-3"><b>User can be prompted to Add to Homescreen</b></li>
+                            <li class="mt-3"><b>Installed web app will launch with custom splash screen</b></li>
+                            <li class="mt-3"><b>App can load on offline/flaky connections</b></li>
+                            <li class="mt-3"><b>Page load performance is fast</b></li>
+                            <li class="mt-3"><b>Design is mobile-friendly</b></li>
+                            <li class="mt-3"><b>Site is progressively enhanced</b></li>
+                            <li class="mt-3"><b>Address bar matches brand colors</b></li>
+                        </ul>
+                        <p>Btw, there’s a <a href="#">getting started guide</a> for Lighthouse and it also works over <a
+                                href="#">remote debugging</a>.
+                            Super cool.</p>
+                        <p>Regardless of what libraries are in your stack, I want to emphasize that everything in the
+                            above
+                            list can be accomplished today with a little work. There are caveats however.</p>
+                        <p><b>We know the mobile web is <a href="#">slow</a>.</b></p>
+                        <p>The web has evolved from a document-centric platform to a first-class application platform.
+                            At the same time the bulk of our computing has moved from powerful desktop machines with
+                            fast, reliable network connections to relatively underpowered mobile devices with
+                            connections that are often <i>slow, flaky or both</i>. This is especially true in parts of
+                            the world where the next billion users are coming online. To unlock a faster mobile web:
+                        </p>
+                        <ul>
+                            <li><b>We need to collectively shift to testing on real mobile devices under realistic
+                                    network connections</b> (e.g <a href="#">Regular 3G in DevTools</a>). <a
+                                    href="#">chrome://inspect</a> and <a href="#">WebPageTest</a> (<a
+                                    href="#">video</a>) are your friend. Lighthouse emulates a Nexus 5X with touch
+                                events,
+                                viewport emulation and a throttled network connection (150ms latency, 1.6Mbps
+                                throughput).</li>
+                            <li class="mt-4"><b>If the JS libraries you’re using aren’t developed with mobile in mind,
+                                    you may be running an uphill battle for perf</b> when it comes to being interactive.
+                                We’re ideally aiming for being interactive in under 5
+                                seconds on a representative device so more of that budget for our app code is ❤
+                            </li>
+                        </ul>
+                        <figure class="figure mt-4">
+                            <img class="figure-img img-fluid" src="assets/images/img9.png">
+                            <figcaption class="figure-caption">
+                                <small>
+                                    With some work, it’s possible to write PWAs with React that do perform well on real
+                                    devices under limited network conditions <a href="#">as demonstrated by
+                                        Housing.com</a>. We’ll talk about how to achieve this in great <b>detail</b>
+                                    later on in the series.
+                                </small>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div> -->
+                <!-- <div class="row justify-content-end mt-4">
+                    <div class="col-lg-8">
+                        <p>
+                            That said, this is an area many libraries are working to improve on and may need to if
+                            they’re going to stay viable for performance
+                            on physical devices.
+                            <mark>Just take a look at the A+ job <a href="#">Preact</a> is doing on <a href="#">perf
+                                    with real-world devices.</a></mark>
+                        </p>
+                    </div>
+                    <div class="col-lg-2 d-none d-lg-block">
+                        <a href="#"><small class="text-secondary">Top highlight</small></a>
+                    </div>
+                </div> -->
+                <!-- <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <p><b>Open-source React Progressive Web App samples</b></p>
+                        <img class="img-fluid" src="assets/images/img3.png">
+                        <p class="mt-4"><i>If you’re after relatively non-trivial examples of PWAs built with React and
+                                optimized with Lighthouse, you may be interested in: <a href="#">ReactHN</a> — a
+                                HackerNews client with server-side rendering & offline support or <a
+                                    href="#">iFixit</a> — a hardware repair guide built with React but which uses Redux
+                                for state management.</i></p>
+                        <p class="mt-4">Let’s now walk through what we need to do to check off each item in the
+                            Lighthouse report, continuing
+                            with React.js specific tips throughout the series.</p>
+                    </div>
+                </div> -->
+            </section>
+
+            <section class="mt-5">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h1 class="font-weight-bold mt-4">DATASETS</h2>
+                            <h5 class="font-weight-bold mt-4">Main Datsets and Splits</h5>
+                    </div>
+                </div>
+                <!-- <div class="row">
+                    <div class="col-lg-6">
+                        <img class="img-fluid" src="assets/images/img11.jpeg">
+                    </div>
+                    <div class="col-lg-4 d-none d-lg-block">
+                        <p>
+                            <a href="#">HTTPS</a> prevents bad-actors from tampering with communications between your
+                            app
+                            and the browser your users are using and you might have read that Google is pushing to <a
+                                href="#">shame</a> sites that are unencrypted. Powerful new web platform APIs, like <a
+                                href="#">Service Worker</a>,
+                            <a href="#">require</a>
+                        </p>
+                    </div>
+                </div> -->
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <p>
+
+                            <i>
+                                This project is based on different versions of the massive Gazecapture Dataset from MIT.
+                                Major portion of my work has been on a smaller version of the same dataset -
+                                gazetrack.tar.gz. The directory structure of the dataset is explained below.
+                            </i>
+                            <br />
+                            <br />
+                            <i>
+                                There are two splits that are available for the same dataset - MIT Split and Google
+                                Split. MIT split contains frames of unique individuals in each train, val, and test set.
+                                This means that the frames corresponding to an individual are present in either train or
+                                val or test.
+                                Google Split contains frames of individuals across the train, val and test set. This
+                                means that the frames corresponding to an individual are present in train and test and
+                                val set.
+
+                            </i>
+                        </p>
+
+                    </div>
+                </div>
+                <div class="dataimg">
+
+                    <img class="img-fluid mt-4" width="250" src="assets/images/img1.png">
+                    <hr />
+                    
+                </div>
+                <div class="dataimg2">
+                    <img class="img-fluid mt-4" width="350" src="assets/images/img2.png">
+                    
+                    <img class="img-fluid mt-4" width="350" src="assets/images/img3.png">
+                </div>
+
+                <br />
+                <br />
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h5 class="font-weight-bold mt-4">Main Tfrec dataset</h5>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <p>
+
+                            <i>
+                                In order to completely implement the Google Model’s Input Pipeline for inference, the
+                                dataset should be saved as a .tfrec file and images be read through tf.example protocol
+                                buffer from the .tfrec and then the further processing on image can be done. So then I
+                                created a .tfrec based dataset from the already existing gazetrack.tar.gz dataset on the
+                                server.
+                            </i>
+                        </p>
+                        <!-- <div class="setImages">
+                            <img class="img-fluid mt-4" src="assets/images/img5.png">
+                            <img class="img-fluid mt-4" src="assets/images/img4.png">
+                        </div> -->
+
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-6 col-md-12 my-4">
+                                <img width="300" src="assets/images/img5.png">
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-12 my-4">
+                                <img width="500" src="assets/images/img4.png">
+
+                            </div>
+                        </div>
+                        <!-- <img class="img-fluid mt-4" src="assets/images/img6.jpg"> -->
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h5 class="font-weight-bold mt-4">Individual and Combined tfrec datasets</h5>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <p>
+
+                            <i>Google had performed per user per block SVR personalisation. Now to perform this per user
+                                SVR training and testing, the outputs of the .tflite model had to be segregated by users
+                                which meant that the .tfrec files had to be arranged according to users.
+
+                                Thus I created .tfrecs suited to the same. A combined .tfrec file containing ten
+                                individuals with all the frames from test train and val of gazetrack.tar.gz. Also these
+                                ten individuals were chosen on the basis of - number of frames per user, i.e, these 10
+                                individuals have the highest number of frames among all the users in the gazetrack
+                                dataset combined (test train and val).
+
+                                The results of the .tflite model on this .tfrec were then fed into SVR for per user
+                                personalisation as elaborated below (image)
+                            </i>
+                        </p>
+                        <!-- <img class="img-fluid mt-4" src="assets/images/img6.jpg"> -->
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h5 class="font-weight-bold mt-4">Unique 30 dataset (csv) </h5>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <p>
+
+                            <i>To carry out an experiment performed last year on the same project, we ran the SVR on
+                                Google model’s output on 30 unique gazetrack points per individual. For the same unique
+                                points for every individual were extracted from all the CSV outputs for google
+                                model.</i>
+                        </p>
+
+                        <!-- <img class="img-fluid mt-4" src="assets/images/img6.jpg"> -->
+                    </div>
+                </div>
+                <div class="dots">
+              
+                    <img class="img-fluid" src="assets/images/img11.png" width="300">
+                    <img class="img-fluid" src="assets/images/img10.png" width="300">
+                    <img class="img-fluid" src="assets/images/img9.png" width="300">
+    
+                </div>
+
+            </section>
+            <section class="mt-5">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h1 class="font-weight-bold mt-4">MODEL/VERSIONS</h1>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <img class="img-fluid mt-4" src="assets/images/img6.jpg">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h5 class="font-weight-bold mt-4">Google .tflite version</h5>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <p>
+
+                            <i>This version was provided by Google itself. We had experimented extensively with this
+                                version and the results are visualized below in the report.</i>
+                        </p>
+
+                        <!-- <img class="img-fluid mt-4" src="assets/images/img6.jpg"> -->
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h5 class="font-weight-bold mt-4">Keypoint and Eye bounding box</h5>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-6 col-md-12 my-12">
+                                <img class="img-fluid" src="assets/images/img7.jpg" width="350">
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-12">
+                                <p>
+                                    With a Web App manifest setup, you also get access to app installer banners, giving
+                                    you a
+                                    way to natively prompt for users
+                                    to install your PWA if they find themselves engaging with it often. It’s also
+                                    possible to
+                                    defer
+                                    the prompt until a time when a user has a useful interaction with your app. Flipkart
+                                    found
+                                    the
+                                    best time to show the prompt was on their order confirmation page.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+
+                    </div>
+                </div>
+
+                <!-- <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h5 class="font-weight-bold mt-4">Initial Query Version </h5>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+
+                        <p><i>The version to this model was done in order to kickstart its query.
+                            </i></p>
+
+
+                    </div>
+                </div> -->
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h5 class="font-weight-bold mt-4">Experimental Versions
+                        </h5>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+
+                        <table class="rtable">
+                            <thead>
+                                <tr>
+                                    <th>Version/Modification</th>
+                                    <th>Bounding Box Points Alignment</th>
+                                    <th>Bounding Box Format</td>
+                                    <th>Eye Crop Size</th>
+                                    <th>Bounding Box as input</th>
+                                    <th>Bounding Box Normalization</th>
+                                    <th>Input Sequence to Model</th>
+                                    <th>Dist Function</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>v0</td>
+                                    <td>Default</td>
+                                    <td>[x,y,w,h]</td>
+                                    <td>Original</td>
+                                    <td>Bottom Left</td>
+                                    <td>By Screen Size</td>
+                                    <td>(rb,lb,re,le)</td>
+                                    <td>NA</td>
+
+                                </tr>
+                                <tr>
+                                    <td>v1</td>
+                                    <td>Default</td>
+                                    <td>[x,y,w,h]</td>
+                                    <td>Original</td>
+                                    <td>Bottom Left</td>
+                                    <td>By Image Size</td>
+                                    <td>(rb,lb,re,le)</td>
+                                    <td>NA</td>
+                                </tr>
+                                <tr>
+                                    <td>v2</td>
+                                    <td>Default</td>
+                                    <td>[x,y,w,h]</td>
+                                    <td>Original</td>
+                                    <td>Top Left</td>
+                                    <td>By Image Size</td>
+                                    <td>(rb,lb,re,le)</td>
+                                    <td>NA</td>
+                                </tr>
+                                <tr>
+                                    <td>v3</td>
+                                    <td>Default</td>
+                                    <td>[x,y,w,h]</td>
+                                    <td>w/2, w/2</td>
+                                    <td>Bottom Left</td>
+                                    <td>By Image Size</td>
+                                    <td>(rb,lb,re,le)</td>
+                                    <td>np.linalg.norm</td>
+                                </tr>
+                                <tr>
+                                    <td>v3b</td>
+                                    <td>S</td>
+                                    <td>[x,y,w,h]</td>
+                                    <td>w/2, w/2</td>
+                                    <td>Top Left</td>
+                                    <td>By Image Size</td>
+                                    <td>(rb,lb,re,le)</td>
+                                    <td>np.linalg.norm</td>
+                                </tr>
+                                <tr>
+                                    <td>v3testing</td>
+                                    <td>Default</td>
+                                    <td>[x,y,w,h]</td>
+                                    <td>w/2, w/2</td>
+                                    <td>Bottom Left</td>
+                                    <td>By Image Size</td>
+                                    <td>(rb,lb,re,le)</td>
+                                    <td>math.dist</td>
+                                </tr>
+                                <tr>
+                                    <td>v4</td>
+                                    <td>Default</td>
+                                    <td>[x,y,w,h]</td>
+                                    <td>w/2, w/2</td>
+                                    <td>Top Left</td>
+                                    <td>By Image Size</td>
+                                    <td>(rb,lb,re,le)</td>
+                                    <td>np.linalg.norm</td>
+                                </tr>
+                                <tr>
+                                    <td>v4b</td>
+                                    <td>S</td>
+                                    <td>[x,y,w,h]</td>
+                                    <td>w/2, w/2</td>
+                                    <td>Top Left</td>
+                                    <td>By Image Size</td>
+                                    <td>(rb,lb,re,le)</td>
+                                    <td>np.linalg.norm</td>
+                                </tr>
+                                <tr>
+                                    <td>v4testing</td>
+                                    <td>Default</td>
+                                    <td>[x,y,w,h]</td>
+                                    <td>w/2, w/2</td>
+                                    <td>Top Left</td>
+                                    <td>By Image Size</td>
+                                    <td>(rb,lb,re,le)</td>
+                                    <td>np.linalg.norm</td>
+                                </tr>
+                                <tr>
+                                    <td>v5</td>
+                                    <td>Default</td>
+                                    <td>[x1,y1,x2,y2]</td>
+                                    <td>w/2, w/2</td>
+                                    <td>Top Left</td>
+                                    <td>By Image Size</td>
+                                    <td>(rb,lb,re,le)</td>
+                                    <td>np.linalg.norm</td>
+                                </tr>
+                                <tr>
+                                    <td>v5b</td>
+                                    <td>S</td>
+                                    <td>[x1,y1,x2,y2]</td>
+                                    <td>w/2, w/2</td>
+                                    <td>Top Left</td>
+                                    <td>By Image Size</td>
+                                    <td>(rb,lb,re,le)</td>
+                                    <td>np.linalg.norm</td>
+                                </tr>
+                                <tr>
+                                    <td>vfinal</td>
+                                    <td>Default</td>
+                                    <td>[x,y,w,h]</td>
+                                    <td>w/2.5, w/3</td>
+                                    <td>Top Left</td>
+                                    <td>By Image Size</td>
+                                    <td>(rb,lb,re,le)</td>
+                                    <td>abs</td>
+                                </tr>
+                                <tr>
+                                    <td>vfinal_unif</td>
+                                    <td>Default</td>
+                                    <td>[x,y,w,h]</td>
+                                    <td>w/2.5, w/3</td>
+                                    <td>Top Left</td>
+                                    <td>By Image Size</td>
+                                    <td>(rb,lb,re,le)</td>
+                                    <td>abs</td>
+                                </tr>
+                                <tr>
+                                    <td>vfinal_flipkey</td>
+                                    <td>S</td>
+                                    <td>[x,y,w,h]</td>
+                                    <td>w/2.5, w/3</td>
+                                    <td>Top Left</td>
+                                    <td>By Image Size</td>
+                                    <td>(rb,lb,re,le)</td>
+                                    <td>abs</td>
+                                </tr>
+                                <tr>
+                                    <td>vfinallrnoflip_flipkey</td>
+                                    <td>S</td>
+                                    <td>[x,y,w,h]</td>
+                                    <td>w/2.5, w/3</td>
+                                    <td>Top Left</td>
+                                    <td>By Image Size</td>
+                                    <td>(rb,lb,re,le)</td>
+                                    <td>abs</td>
+                                </tr>
+                                <tr>
+                                    <td>vfinallrnoflip</td>
+                                    <td>Default</td>
+                                    <td>[x,y,w,h]</td>
+                                    <td>w/2.5, w/3</td>
+                                    <td>Top Left</td>
+                                    <td>By Image Size</td>
+                                    <td>(rb,lb,re,le)</td>
+                                    <td>abs</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- <img class="img-fluid mt-4" src="assets/images/img6.jpg"> -->
+                    </div>
+                </div>
+
+                <!-- <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <p>
+                            <a href="#"><i>The Chrome DevTools Application Panel</i></a> supports inspecting your Web
+                            App
+                            Manifest via Application > Manifest:
+                        </p>
+                        <img class="img-fluid my-4" src="assets/images/img1.jpg">
+                        <p>This parses out the favicons listed in your manifest and previews properties like the start
+                            URL and
+                            theme colors. Btw, there’s a Totally Tooling Tips episode on Web App Manifests if interested
+                            ;)
+                        </p>
+                    </div>
+                </div> -->
+            </section>
+
+            <section class="mt-5">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h2 class="font-weight-bold">App Data Collection</h2>
+                        <!-- <p>
+                            <i>
+                                A small instance of data collection was also done during the project. Data was collected through an app (android .apk). This data would be later used in the project for fine tuning our own trained model on the same lines as Google, and then the comprehensive comparison can be carried out for an end to end model for Gazetracking.
+                            </i>
+                        </p> -->
+                    
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <div class="row">
+                                <div class="col-xl-6 col-lg-6 col-md-12 my-12">
+                                    <img class="img-fluid" src="assets/images/img8.png" width="350">
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-12">
+                                    <p>
+                                        A small instance of data collection was also done during the project. Data was collected through an app (android .apk). This data would be later used in the project for fine tuning our own trained model on the same lines as Google, and then the comprehensive comparison can be carried out for an end to end model for Gazetracking.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </section>
+
+            <section class="mt-5">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h2 class="font-weight-bold">
+                            SVR
+                        </h2>
+                        <p>
+                            SVR was used by google to further map its penultimate layer output in another tensor space,
+                            and then further used this mapped tensor to calculate the Mean Euclidean Distance. In this
+                            implementation also SVR is used for the same.
+                        </p>
+                        <p class="mt-4">
+                            SVR was performed on different dataset splits and folds mentioned below.
+
+                        </p>
+                        <ul>
+                            <li class="mt-3"><b>Folds - 3 fold and 5 fold cross validation strategy</b></li>
+                            <li class="mt-3"><b>Split- Google Split (Fig reference)</b></li>
+                            <li class="mt-3"><b>Split Sequence</b>
+                                <p><i>
+                                        First - First split the corresponding dataset in 70/30 train/test ratio, and
+                                        then fitting the SVR on the train and then testing on test.
+                                    </i></p>
+                                <p><i>
+                                        Later - fitting on the corresponding dataset (in the two folds mentioned above)
+                                        and extracting the best hyperparameters, and then tuning on those parameters on
+                                        a 70% train division and then testing it on a 30% test division.
+                                    </i></p>
+                            </li>
+                            <li class="mt-3"><b>Epsilon Range</b></li>
+                            <p>
+                                <i>
+                                    A lower and higher epsilon range has been swept through as an experiment. Higher
+                                    range corresponds to more values between the interval of sweep for epsilon. For
+                                    example - 0.1,0.2......1,2....10,20,30....100,200,300....1000. Whereas a lower range
+                                    corresponds to less values between the interval of sweep for epsilon. For example -
+                                    0.1,1,10,100,1000.
+                                </i>
+                            </p>
+                        </ul>
+
+                        </ul>
+                        <!-- <img class="img-fluid my-4" src="assets/images/img7.jpg"> -->
+
+                    </div>
+                </div>
+            </section>
+            <section class="mt-5">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h2 class="font-weight-bold">Results and Visualizations</h2>
+                        <p>
+                            MED for 10 different users and the average for all those individuals was plotted across all
+                            the different versions for input to the google model and this is how the plots came out to
+                            be -
+                        </p>
+                        <!-- <img class="img-fluid my-4" src="assets/images/all_versions_3_fold_split_first_cv3.jpg"> -->
+
+                        <!-- <code class="text-dark d-block my-4">
+                            &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+                        </code>
+                        <p>
+                            We can see the input version with the lowest error.
+
+                        </p> -->
+                    </div>
+                    <!-- <div class="col-lg-10 mx-auto my-4">
+                        <img class="img-fluid" src="assets/images/img4.jpg">
+                    </div>
+                    <div class="col-lg-8 mx-auto">
+                        <p>
+                            In Part 2 of the series, we’ll look at <a href="#"><b>page-load performance with React and
+                                    Webpack</b></a>.
+                            We’ll dive into code-splitting, route-based chunking and the PRPL pattern for reaching
+                            interactivity
+                            sooner.
+                        </p>
+                        <p class="my-4">If you’re new to React, I’ve found React for Beginners by Wes Bos excellent.</p>
+                        <p><i>With thanks to Gray Norton, Sean Larkin, Sunil Pai, Max Stoiber, Simon Boudrias, Kyle
+                                Mathews and Owen Campbell-Moore for their reviews.</i></p>
+                        <small class="text-secondary">Thanks to Owen Campbell-Moore and <a href="#">Max
+                                Stoiber</a>.</small>
+
+                    </div> -->
+                    <!-- <div class="col-lg-8 mx-auto mt-4">
+                        <button type="button" class="btn btn-light btn-sm">Web Development</button>
+                        <button type="button" class="btn btn-light btn-sm">Mobile</button>
+                        <button type="button" class="btn btn-light btn-sm">Progressive Web App</button>
+                        <button type="button" class="btn btn-light btn-sm">React</button>
+                        <button type="button" class="btn btn-light btn-sm">JavaScript</button>
+                        <hr class="mt-4">
+                    </div> -->
+                </div>
+            </section>
+            <div style="align-items: center">
+
+                <div class="imgCaption">
+
+                    <div class="img-zoom-container">
+                        <img id="myimage" src="assets/images/all_versions_3_fold_split_first_cv3.jpg" width="740"
+                            height="740">
+                        <div id="myresult" class="img-zoom-result"></div>
+                    </div>
+                    <b style="margin-top: -69px;">3 Fold & Split First</b>
+                </div>
+                <div class="imgCaption">
+
+                    <div class="img-zoom-container">
+                        <img id="myimage1" src="assets/images/all_versions_5fold split later_30points.jpg" width="740"
+                            height="740">
+                        <div id="myresult1" class="img-zoom-result"></div>
+                    </div>
+                    <b style="margin-top: -69px;">5 Fold & Split Later</b>
+                </div>
+                <div class="imgCaption">
+
+                    <div class="img-zoom-container">
+                        <img id="myimage2" src="assets/images/all_versions_split_first_cv3_her.jpg" width="740"
+                            height="740">
+                        <div id="myresult2" class="img-zoom-result"></div>
+                    </div>
+                    <b style="margin-top: -69px;">Split First cv3 Her</b>
+                </div>
+                <div class="imgCaption">
+
+                    <div class="img-zoom-container">
+                        <img id="myimage3" src="assets/images/all_versions_split_first_cv5.jpg" width="740"
+                            height="740">
+                        <div id="myresult3" class="img-zoom-result"></div>
+                    </div>
+                    <b style="margin-top: -69px;">Split First cv5</b>
+                </div>
+                <div class="imgCaption">
+
+                    <div class="img-zoom-container">
+                        <img id="myimage4" src="assets/images/all_versions_split_first_cv5_her.jpg" width="740"
+                            height="740">
+                        <div id="myresult4" class="img-zoom-result"></div>
+                    </div>
+                    <b style="margin-top: -69px;">Split First cv5 Her</b>
+                </div>
+
+                <div class="imgCaption">
+
+                    <div class="img-zoom-container">
+                        <img id="myimage5" src="assets/images/all_versions_split_first_unique_points_30_cv3.jpg"
+                            width="740" height="740">
+                        <div id="myresult5" class="img-zoom-result"></div>
+                    </div>
+                    <b style="margin-top: -69px;">Split First unique points 30</b>
+                </div>
+
+                <div class="imgCaption">
+
+                    <div class="img-zoom-container">
+                        <img id="myimage6" src="assets/images/all_versions_split_first_unique_points_30_cv3_her.jpg"
+                            width="740" height="740">
+                        <div id="myresult6" class="img-zoom-result"></div>
+                    </div>
+                    <b style="margin-top: -69px;">Split First unique points 30 Her</b>
+                </div>
+                <div class="imgCaption">
+
+                    <div class="img-zoom-container">
+                        <img id="myimage7" src="assets/images/all_versions_split_first_unique_points_30_cv5.jpg"
+                            width="740" height="740">
+                        <div id="myresult7" class="img-zoom-result"></div>
+                    </div>
+                    <b style="margin-top: -69px;">Split First unique points 30 cv5</b>
+                </div>
+
+                <div class="imgCaption">
+
+                    <div class="img-zoom-container">
+                        <img id="myimage8" src="assets/images/all_versions_split_first_unique_points_30_cv5_her.jpg"
+                            width="740" height="740">
+                        <div id="myresult8" class="img-zoom-result"></div>
+                    </div>
+                    <b style="margin-top: -69px;">Split First unique points 30 cv5 Her</b>
+                </div>
+                <div class="imgCaption">
+
+                    <div class="img-zoom-container">
+                        <img id="myimage9" src="assets/images/all_versions_with_avg.jpg" width="740" height="740">
+                        <div id="myresult9" class="img-zoom-result"></div>
+                    </div>
+                    <b style="margin-top: -69px;">With Average</b>
+                </div>
+
+            </div>
+
+
+
+            <section class="mt-5">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h2 class="font-weight-bold">Challenges and Learnings</h2>
+                        <br />
+                        <h4>Challenges</h4>
+                        <p>
+                            No previous significant experience in tf.
+
+                        </p>
+
+                        <h4>Learnings</h4>
+                        <ul>
+                            <li>
+                                <p>
+                                    Working with larger datasets
+
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Working with tf to all the way to the basic implementations
+
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Writing and modifying code according to the situation/requirement of the
+                                    team/organization
+
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Working of SVR (fitting and sweeping)
+
+
+                                </p>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </div>
+            </section>
+            
+            <section class="mt-5">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h2 class="font-weight-bold">Conclusion and Future Direction
+                        </h2>
+
+                        <p>
+                            <i>
+                                The project is completed as major experimentations on the google model and the input
+                                version with the lowest error have been determined. Now lies ahead, further testing the
+                                model’s accuracy on our set of calibration data that we have collected throughout this
+                                project. Incorporation of face-filter and face-tilt features can be tested with the
+                                current version of google base model to try and further decrease the MED for gaze
+                                estimation.
+                            </i>
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+            <!-- <section class="mt-2">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h4>Show your support</h4>
+                        <p class="text-secondary mb-4">Clapping shows how much you appreciated Addy Osmani’s story.</p>
+                        <div class="float-left">
+                            <a class="icon-clap-hands rounded-circle p-3" href="#"></a>
+                            <a class="text-secondary ml-2" href="#"><small>2.6K</small></a>
+                        </div>
+                        <div class="float-right">
+                            <ul class="list-inline">
+                                <li class="list-inline-item"><a class="icon-comment" href="#"></a></li>
+                                <li class="list-inline-item"><a class="undecorated" href="#"><small>22</small></a></li>
+                                <li class="list-inline-item"><a class="icon-twitter" href="#"></a></li>
+                                <li class="list-inline-item"><a class="icon-facebook-square" href="#"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 mx-auto">
+                        <hr>
+                    </div>
+                </div>
+                <div class="row justify-content-center mb-4">
+                    <div class="float-left ml-4">
+                        <img class="rounded-circle" height="70" src="assets/images/avatar1.png" alt="Addy Osmani">
+                    </div>
+                    <div class="col-6 ml-2">
+                        <div class="row">
+                            <h5><a class="text-dark font-weight-bold" href="#">Addy Osmani</a></h5>
+                        </div>
+                        <div class="row">
+                            <small class="text-success">Medium member since Mar 2017</small>
+                        </div>
+                        <div class="row">
+                            <small class="text-secondary">Senior Staff Engineer at Google working with the Chrome team •
+                                Creator of TodoMVC, Yeoman, Material Design Lite, Web Starter Kit • Passionate about web
+                                tooling</small>
+                        </div>
+                    </div>
+                    <div class="float-right">
+                        <button class="follow-btn btn btn-outline-success float-right mr-4"
+                            type="button">Follow</button>
+                    </div>
+                </div>
+            </section> -->
+        </article>
+    </main>
+    <footer class="bg-light">
+        <div class="container">
+            <div class="row pt-5">
+                <div class="col-lg-4 mx-auto">
+                    <div class="card mt-md-3">
+                        <a class="card-img-top card-img-top--1" href="#"></a>
+                        <div class="card-body">
+                            <h6 class="card-subtitle text-muted mb-2">More from Addy Osmani</h6>
+                            <h4 class="card-title font-weight-bold">Progressive Web App Libraries in Production</h4>
+                            <div class="row mt-4">
+                                <div class="col-1">
+                                    <img class="rounded-circle" height="40" src="assets/images/avatar1.png"
+                                        alt="Addy Osmani">
+                                </div>
+                                <div class="col-5 ml-3">
+                                    <h6 class="my-0">Addy Osmani</h6>
+                                    <small class="text-muted">10 min read</small>
+                                </div>
+                                <div class="col-5 text-right">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item"><a class="icon-clap-hands icon-clap-hands--small"
+                                                href="#"></a></li>
+                                        <li class="list-inline-item"><small class="text-muted">1.1K</small></li>
+                                        <li class="list-inline-item"><a class="icon-bookmark text-muted" href="#"></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mx-auto">
+                    <div class="card mt-md-3">
+                        <a class="card-img-top card-img-top--2" href="#"></a>
+                        <div class="card-body">
+                            <h6 class="card-subtitle text-muted mb-2">Related reads</h6>
+                            <h4 class="card-title font-weight-bold">Twitter Lite and High Performace</h4>
+                            <div class="row mt-4">
+                                <div class="col-1">
+                                    <img class="rounded-circle" height="40" src="assets/images/avatar2.png"
+                                        alt="Paul Armstorng">
+                                </div>
+                                <div class="col-5 ml-3">
+                                    <h6 class="my-0">Paul Armstorng</h6>
+                                    <small class="text-muted">23 min read</small>
+                                </div>
+                                <div class="col-5 text-right">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item"><a class="icon-clap-hands icon-clap-hands--small"
+                                                href="#"></a></li>
+                                        <li class="list-inline-item"><small class="text-muted">768</small></li>
+                                        <li class="list-inline-item"><a class="icon-bookmark text-muted" href="#"></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mx-auto">
+                    <div class="card mt-md-3">
+                        <a class="card-img-top card-img-top--3" href="#"></a>
+                        <div class="card-body">
+                            <h6 class="card-subtitle text-muted mb-2">More from Addy Osmani</h6>
+                            <h4 class="card-title font-weight-bold">Angular vs React vs Vue. 2017 Comparison</h4>
+                            <div class="row mt-4">
+                                <div class="col-1">
+                                    <img class="rounded-circle" height="40" src="assets/images/avatar1.png"
+                                        alt="Addy Osmani">
+                                </div>
+                                <div class="col-5 ml-3">
+                                    <h6 class="my-0">Addy Osmani</h6>
+                                    <small class="text-muted">10 min read</small>
+                                </div>
+                                <div class="col-5 text-right">
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item"><a class="icon-clap-hands icon-clap-hands--small"
+                                                href="#"></a></li>
+                                        <li class="list-inline-item"><small class="text-muted">3.9K</small></li>
+                                        <li class="list-inline-item"><a class="icon-bookmark text-muted" href="#"></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-8 mx-auto mt-5">
+                    <h6><b>Responses</b></h6>
+                    <div class="bg-white border rounded py-5 px-4 mt-3">
+                        <a class="text-muted" href="#"><span class="icon-comment"></span> Write a response...</a>
+                    </div>
+
+                    <a class="d-block border rounded p-4 mt-5 bg-white text-center text-success" href="#">Show all
+                        responses</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Initiate zoom effect:
+        imageZoom("myimage", "myresult");
+    </script>
+    <script>
+        // Initiate zoom effect:
+        imageZoom("myimage1", "myresult1");
+    </script>
+    <script>
+        // Initiate zoom effect:
+        imageZoom("myimage2", "myresult2");
+    </script>
+    <script>
+        // Initiate zoom effect:
+        imageZoom("myimage3", "myresult3");
+    </script>
+    <script>
+        // Initiate zoom effect:
+        imageZoom("myimage4", "myresult4");
+    </script>
+    <script>
+        // Initiate zoom effect:
+        imageZoom("myimage5", "myresult5");
+    </script>
+    <script>
+        // Initiate zoom effect:
+        imageZoom("myimage6", "myresult6");
+    </script>
+    <script>
+        // Initiate zoom effect:
+        imageZoom("myimage7", "myresult7");
+    </script>
+    <script>
+        // Initiate zoom effect:
+        imageZoom("myimage8", "myresult8");
+    </script>
+    <script>
+        // Initiate zoom effect:
+        imageZoom("myimage9", "myresult9");
+    </script>
+</body>
+
+</html>

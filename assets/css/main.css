@@ -1,0 +1,220 @@
+@font-face{font-family:icomoon;src:url(../fonts/icomoon/icomoon.eot?5l6di6);src:url(../fonts/icomoon/icomoon.eot?5l6di6#iefix) format('embedded-opentype'),url(../fonts/icomoon/icomoon.ttf?5l6di6) format('truetype'),url(../fonts/icomoon/icomoon.woff?5l6di6) format('woff'),url(../fonts/icomoon/icomoon.svg?5l6di6#icomoon) format('svg');font-weight:400;font-style:normal}@font-face{font-family:charterbold_italic;src:url(../fonts/charter/charter_bold_italic-webfont.eot);src:url(../fonts/charter/charter_bold_italic-webfont.eot?#iefix) format('embedded-opentype'),url(../fonts/charter/charter_bold_italic-webfont.woff) format('woff');font-weight:400;font-style:normal}@font-face{font-family:charterbold;src:url(../fonts/charter/charter_bold-webfont.eot);src:url(../fonts/charter/charter_bold-webfont.eot?#iefix) format('embedded-opentype'),url(../fonts/charter/charter_bold-webfont.woff) format('woff');font-weight:400;font-style:normal}@font-face{font-family:charteritalic;src:url(../fonts/charter/charter_italic-webfont.eot);src:url(../fonts/charter/charter_italic-webfont.eot?#iefix) format('embedded-opentype'),url(../fonts/charter/charter_italic-webfont.woff) format('woff');font-weight:400;font-style:normal}@font-face{font-family:charterregular;src:url(../fonts/charter/charter_regular-webfont.eot);src:url(../fonts/charter/charter_regular-webfont.eot?#iefix) format('embedded-opentype'),url(../fonts/charter/charter_regular-webfont.woff) format('woff');font-weight:400;font-style:normal}[class*=" icon-"],[class^=icon-]{font-family:icomoon!important;speak:none;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;text-decoration:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}[class*=" icon-"]:hover,[class^=icon-]:hover{text-decoration:none}.icon-logo:before{content:"\e901"}.icon-clap-hands:before{content:"\e900";color:#01c996}.icon-bookmark:before{content:"\f02e"}.icon-comment:before{content:"\f075"}.icon-facebook-square:before{content:"\f082"}.icon-twitter:before{content:"\f099"}@font-face{font-family:icomoon;src:url(../fonts/icomoon/icomoon.eot?5l6di6);src:url(../fonts/icomoon/icomoon.eot?5l6di6#iefix) format('embedded-opentype'),url(../fonts/icomoon/icomoon.ttf?5l6di6) format('truetype'),url(../fonts/icomoon/icomoon.woff?5l6di6) format('woff'),url(../fonts/icomoon/icomoon.svg?5l6di6#icomoon) format('svg');font-weight:400;font-style:normal}@font-face{font-family:charterbold_italic;src:url(../fonts/charter/charter_bold_italic-webfont.eot);src:url(../fonts/charter/charter_bold_italic-webfont.eot?#iefix) format('embedded-opentype'),url(../fonts/charter/charter_bold_italic-webfont.woff) format('woff');font-weight:400;font-style:normal}@font-face{font-family:charterbold;src:url(../fonts/charter/charter_bold-webfont.eot);src:url(../fonts/charter/charter_bold-webfont.eot?#iefix) format('embedded-opentype'),url(../fonts/charter/charter_bold-webfont.woff) format('woff');font-weight:400;font-style:normal}@font-face{font-family:charteritalic;src:url(../fonts/charter/charter_italic-webfont.eot);src:url(../fonts/charter/charter_italic-webfont.eot?#iefix) format('embedded-opentype'),url(../fonts/charter/charter_italic-webfont.woff) format('woff');font-weight:400;font-style:normal}@font-face{font-family:charterregular;src:url(../fonts/charter/charter_regular-webfont.eot);src:url(../fonts/charter/charter_regular-webfont.eot?#iefix) format('embedded-opentype'),url(../fonts/charter/charter_regular-webfont.woff) format('woff');font-weight:400;font-style:normal}[class*=" icon-"],[class^=icon-]{font-family:icomoon!important;speak:none;font-style:normal;font-weight:400;font-variant:normal;text-transform:none;text-decoration:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}[class*=" icon-"]:hover,[class^=icon-]:hover{text-decoration:none}.icon-logo:before{content:"\e901"}.icon-clap-hands:before{content:"\e900";color:#01c996}.icon-bookmark:before{content:"\f02e"}.icon-comment:before{content:"\f075"}.icon-facebook-square:before{content:"\f082"}.icon-twitter:before{content:"\f099"}body{padding-top:100px}li,p{font-family:charterregular,Times,sans-serif;font-weight:400}b{font-family:charterbold,sans-serif}li,p{font-size:20px;color:#4d4d4d}li a,p a,small a{color:inherit;text-decoration:underline}li a:hover,p a:hover,small a:hover{color:inherit}mark{background-color:rgba(39,243,106,.1)}footer{padding-bottom:100px}footer a:hover{text-decoration:none}.top-navbar{opacity:.95;border-bottom:thin solid #f5f5f5}.bottom-navbar{-webkit-box-shadow:0 -3px 10px 0 rgba(0,0,0,.0785);box-shadow:0 -3px 10px 0 rgba(0,0,0,.0785)}.card-img-top{height:100px;background-size:100% auto;background-repeat:no-repeat;border-bottom:thin solid gray}.card-img-top--1{background-image:url(../images/article1.png)}.card-img-top--2{background-image:url(../images/article2.png)}.card-img-top--3{background-image:url(../images/article3.png)}.undecorated{text-decoration:none}.undecorated:hover{text-decoration:none}.follow-btn{border-radius:15px;font-size:13px}.follow-btn--small{font-size:12px;font-weight:600;height:20px;padding:0 8px}.get-updates{border-radius:15px;font-size:.8em}.logo{font-size:3em}.navbar-btns{position:absolute;right:10px}.icon-clap-hands{font-size:30px;border:thin solid gray}.icon-clap-hands--small{border:none}@media screen and (max-width:768px){li,p{font-size:18px}}
+
+:root {
+    --primary-color: #fff; /* try #212121 also for dark mode */
+    --background-color: #212121;
+    --font: sans-serif;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  
+  
+  /* Timeline Container */
+  .timeline {
+    background: var(--primary-color);
+    margin: 20px auto;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Outer Layer with the timeline border */
+  .outer {
+    border-left: 2px solid #333;
+  }
+  
+  /* Card container */
+  .card {
+    position: relative;
+    margin: 0 0 20px 20px;
+    padding: 10px;
+    background: #333;
+    color: gray;
+    border-radius: 8px;
+    max-width: 400px;
+  }
+  
+  /* Information about the timeline */
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  /* Title of the card */
+  .title {
+    color: orangered;
+    position: relative;
+    
+  }
+  
+  /* Timeline dot  */
+  .title::before {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 10px;
+    background: white;
+    border-radius: 999px;
+    left: -39px;
+    border: 3px solid orangered;
+  }
+
+  .rtable {
+    /*!
+    // IE needs inline-block to position scrolling shadows otherwise use:
+    // display: block;
+    // max-width: min-content;
+    */
+    display: inline-block;
+    vertical-align: top;
+    max-width: 100%;
+    
+    overflow-x: auto;
+    
+    white-space: nowrap;
+  
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  
+  .rtable,
+  .rtable--flip tbody {
+    -webkit-overflow-scrolling: touch;
+    
+    background: radial-gradient(left, ellipse, rgba(0,0,0, .2) 0%, rgba(0,0,0, 0) 75%) 0 center,
+                radial-gradient(right, ellipse, rgba(0,0,0, .2) 0%, rgba(0,0,0, 0) 75%) 100% center;
+    background-size: 10px 100%, 10px 100%;
+    background-attachment: scroll, scroll;
+    background-repeat: no-repeat;
+  }
+  
+
+  .rtable td:first-child,
+  .rtable--flip tbody tr:first-child {
+    background-image: linear-gradient(to right, rgba(255,255,255, 1) 50%, rgba(255,255,255, 0) 100%);
+    background-repeat: no-repeat;
+    background-size: 20px 100%;
+  }
+  
+  .rtable td:last-child,
+  .rtable--flip tbody tr:last-child {
+    background-image: linear-gradient(to left, rgba(255,255,255, 1) 50%, rgba(255,255,255, 0) 100%);
+    background-repeat: no-repeat;
+    background-position: 100% 0;
+    background-size: 20px 100%;
+  }
+  
+  .rtable th {
+    font-size: 11px;
+    text-align: left;
+    text-transform: uppercase;
+    background: #f2f0e6;
+  }
+  
+  .rtable th,
+  .rtable td {
+    padding: 6px 12px;
+    border: 1px solid #d9d7ce;
+  }
+  
+  .rtable--flip {
+    display: flex;
+    overflow: hidden;
+    background: none;
+  }
+  
+  .rtable--flip thead {
+    display: flex;
+    flex-shrink: 0;
+    min-width: min-content;
+  }
+  
+  .rtable--flip tbody {
+    display: flex;
+    position: relative;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  
+  .rtable--flip tr {
+    display: flex;
+    flex-direction: column;
+    min-width: min-content;
+    flex-shrink: 0;
+  }
+  
+  .rtable--flip td,
+  .rtable--flip th {
+    display: block;
+  }
+  
+  .rtable--flip td {
+    background-image: none !important;
+    border-left: 0;
+  }
+  
+  .rtable--flip th:not(:last-child),
+  .rtable--flip td:not(:last-child) {
+    border-bottom: 0;
+  }
+
+
+  .setImages {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .img-zoom-container {
+    width: 400;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    /* background-color: black; */
+  }
+  
+  .img-zoom-lens {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    /*set the size of the lens:*/
+    width: 40px;
+    height: 40px;
+  }
+  
+  .img-zoom-result {
+    border: 1px solid #d4d4d4;
+    /*set the size of the result div:*/
+    width: 300px;
+    height: 300px;
+  }
+  
+  .imgCaption{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dataimg{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dots{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  .dataimg2{
+    align-items: center;
+    justify-content: space-evenly;
+    display: flex;
+    flex-direction: row;
+  }
