@@ -509,7 +509,7 @@
 
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
-                        <h5 class="font-weight-bold mt-4">Keypoint and Eye bounding box</h5>
+                        <h5 class="font-weight-bold mt-4">Keypoints and Eye bounding box</h5>
                     </div>
                 </div>
 
@@ -521,16 +521,11 @@
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-12">
                                 <p>
-                                    With a Web App manifest setup, you also get access to app installer banners, giving
-                                    you a
-                                    way to natively prompt for users
-                                    to install your PWA if they find themselves engaging with it often. It’s also
-                                    possible to
-                                    defer
-                                    the prompt until a time when a user has a useful interaction with your app. Flipkart
-                                    found
-                                    the
-                                    best time to show the prompt was on their order confirmation page.
+                                    The image on the left defines the different points that are used in the table below. 
+                                    A refers to the top left point of the bounding box where as B refers to the bottom left point of the bounding box. 
+                                    The Eye Dist in the image on the left is represented by 'e' in the table below. w and h in the below table refer to the width and the height of the bounding boxes of the eyes. 
+                                    'S' in the 'BOUNDING BOX POINTS ALIGNMENT' refers to the swapped keypoints for that input version. By swapping I mean, that we provide left keypoints for the right eye and vice versa. 
+                                    This is done to test both the possible right and left combination of eyes - as viewed by an user through an image and the original position of the eye. 
                                 </p>
                             </div>
                         </div>
@@ -619,7 +614,7 @@
                                     <td>v3</td>
                                     <td>Default</td>
                                     <td>[x,y,w,h]</td>
-                                    <td>w/2, w/2</td>
+                                    <td>e/2, e/2</td>
                                     <td>Bottom Left</td>
                                     <td>By Image Size</td>
                                     <td>(rb,lb,re,le)</td>
@@ -629,7 +624,7 @@
                                     <td>v3b</td>
                                     <td>S</td>
                                     <td>[x,y,w,h]</td>
-                                    <td>w/2, w/2</td>
+                                    <td>e/2, e/2</td>
                                     <td>Top Left</td>
                                     <td>By Image Size</td>
                                     <td>(rb,lb,re,le)</td>
@@ -639,7 +634,7 @@
                                     <td>v3testing</td>
                                     <td>Default</td>
                                     <td>[x,y,w,h]</td>
-                                    <td>w/2, w/2</td>
+                                    <td>e/2, e/2</td>
                                     <td>Bottom Left</td>
                                     <td>By Image Size</td>
                                     <td>(rb,lb,re,le)</td>
@@ -649,7 +644,7 @@
                                     <td>v4</td>
                                     <td>Default</td>
                                     <td>[x,y,w,h]</td>
-                                    <td>w/2, w/2</td>
+                                    <td>e/2, e/2</td>
                                     <td>Top Left</td>
                                     <td>By Image Size</td>
                                     <td>(rb,lb,re,le)</td>
@@ -659,7 +654,7 @@
                                     <td>v4b</td>
                                     <td>S</td>
                                     <td>[x,y,w,h]</td>
-                                    <td>w/2, w/2</td>
+                                    <td>e/2, e/2</td>
                                     <td>Top Left</td>
                                     <td>By Image Size</td>
                                     <td>(rb,lb,re,le)</td>
@@ -669,7 +664,7 @@
                                     <td>v4testing</td>
                                     <td>Default</td>
                                     <td>[x,y,w,h]</td>
-                                    <td>w/2, w/2</td>
+                                    <td>e/2, e/2</td>
                                     <td>Top Left</td>
                                     <td>By Image Size</td>
                                     <td>(rb,lb,re,le)</td>
@@ -679,7 +674,7 @@
                                     <td>v5</td>
                                     <td>Default</td>
                                     <td>[x1,y1,x2,y2]</td>
-                                    <td>w/2, w/2</td>
+                                    <td>e/2, e/2</td>
                                     <td>Top Left</td>
                                     <td>By Image Size</td>
                                     <td>(rb,lb,re,le)</td>
@@ -689,7 +684,7 @@
                                     <td>v5b</td>
                                     <td>S</td>
                                     <td>[x1,y1,x2,y2]</td>
-                                    <td>w/2, w/2</td>
+                                    <td>e/2, e/2</td>
                                     <td>Top Left</td>
                                     <td>By Image Size</td>
                                     <td>(rb,lb,re,le)</td>
@@ -699,10 +694,10 @@
                                     <td>vfinal</td>
                                     <td>Default</td>
                                     <td>[x,y,w,h]</td>
-                                    <td>w/2.5, w/3</td>
+                                    <td>e/2.5, e/3</td>
                                     <td>Top Left</td>
                                     <td>By Image Size</td>
-                                    <td>(rb,lb,re,le)</td>
+                                    <td>(lb,rb,le,re)</td>
                                     <td>abs</td>
                                 </tr>
                                 <tr>
@@ -712,24 +707,24 @@
                                     <td>w/2.5, w/3</td>
                                     <td>Top Left</td>
                                     <td>By Image Size</td>
-                                    <td>(rb,lb,re,le)</td>
+                                    <td>(lb,rb,le,re)</td>
                                     <td>abs</td>
                                 </tr>
                                 <tr>
                                     <td>vfinal_flipkey</td>
                                     <td>S</td>
                                     <td>[x,y,w,h]</td>
-                                    <td>w/2.5, w/3</td>
+                                    <td>e/2.5, e/3</td>
                                     <td>Top Left</td>
                                     <td>By Image Size</td>
-                                    <td>(rb,lb,re,le)</td>
+                                    <td>(lb,rb,le,re)</td>
                                     <td>abs</td>
                                 </tr>
                                 <tr>
                                     <td>vfinallrnoflip_flipkey</td>
                                     <td>S</td>
                                     <td>[x,y,w,h]</td>
-                                    <td>w/2.5, w/3</td>
+                                    <td>e/2.5, e/3</td>
                                     <td>Top Left</td>
                                     <td>By Image Size</td>
                                     <td>(rb,lb,re,le)</td>
@@ -739,7 +734,7 @@
                                     <td>vfinallrnoflip</td>
                                     <td>Default</td>
                                     <td>[x,y,w,h]</td>
-                                    <td>w/2.5, w/3</td>
+                                    <td>e/2.5, e/3</td>
                                     <td>Top Left</td>
                                     <td>By Image Size</td>
                                     <td>(rb,lb,re,le)</td>
